@@ -9,8 +9,14 @@ import { useField } from '@unform/core';
 
 import { Container } from './styles';
 
-const Input = ({ name, icon: Icon, ...rest }) => {
-  const inputRef = useRef(null);
+interface IInputProps {
+  name: string;
+  icon?: any;
+  placeholder: string;
+}
+
+const Input = ({ name, icon: Icon, ...rest }: IInputProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
   const [isFilled, setIsFilled] = useState(false);
